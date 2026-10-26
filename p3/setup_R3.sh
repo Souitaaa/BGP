@@ -1,0 +1,32 @@
+conf t
+hostname csouita-2
+no ipv6 forwarding
+
+int eth1
+no sh
+ip address 10.1.1.2/30
+ip ospf area 0
+exit
+
+int eth0
+no sh
+ip address 20.1.1.254/24
+ip ospf area 0
+exit
+
+int lo
+ip address 1.1.1.2/32
+ip ospf area 0
+exit
+
+router bgp 1
+neighbor 1.1.1.1 remote-as 1
+neighbor 1.1.1.1 update-source lo
+
+address-family l2vpn evpn
+neighbor 1.1.1.1 activate
+advertise-all-vni
+exit-address-family
+
+router ospf
+do write
