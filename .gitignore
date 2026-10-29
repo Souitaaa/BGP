@@ -1,0 +1,12 @@
+# Local copy of the assignment subject
+/en.subject*.pdf
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+*~

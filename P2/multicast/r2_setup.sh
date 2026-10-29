@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Create the Multicast VXLAN tunnel
 ip link add vxlan10 type vxlan id 10 dstport 4789 group 239.1.1.1 dev eth0 ttl auto
 ip link set up dev vxlan10
